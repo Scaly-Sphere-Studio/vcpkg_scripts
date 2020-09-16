@@ -1,13 +1,13 @@
+# Local existing directories
+$pkg_dir    = Resolve-Path "$PSScriptRoot\..";
+$inc_dir    = "$pkg_dir\inc";
+
 # Repo name taken from the git http
-$repo_name  = (git config --get remote.origin.url `
+$repo_name  = (git --git-dir="$pkg_dir\.git" config --get remote.origin.url `
     ).Split('/')[-1].Split('.')[0].ToLower();
 
 # Package name
 $pkg_name   = "sss-$repo_name";
-
-# Local existing directories
-$pkg_dir    = Resolve-Path "$PSScriptRoot\..";
-$inc_dir    = "$pkg_dir\inc";
 
 # Export directory and archive, to be created
 $export_dir = "$pkg_dir\export"
