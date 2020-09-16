@@ -6,7 +6,7 @@ $repo_name  = (git config --get remote.origin.url `
 $pkg_name   = "sss-$repo_name";
 
 # Local existing directories
-$pkg_dir    = Resolve-Path "..";
+$pkg_dir    = Resolve-Path "$PSScriptRoot\..";
 $inc_dir    = "$pkg_dir\inc";
 
 # Export directory and archive, to be created
