@@ -47,7 +47,7 @@ endif()
 
 message(STATUS "Copying headers...")
 # Retrieve all headers
-file(GLOB_RECURSE headers "${inc_dir}/*.h")
+file(GLOB_RECURSE headers "${inc_dir}/*")
 # Copy headers keeping directory structure
 foreach (header ${headers})
     # Retrieve relative path
