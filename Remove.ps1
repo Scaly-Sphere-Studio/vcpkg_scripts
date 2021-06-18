@@ -1,9 +1,9 @@
 $ErrorActionPreference = "Stop";
 
 # Source variables
-. $PSScriptRoot\variables.ps1;
+. $PSScriptRoot\sub_scripts\variables.ps1;
 
-# Expand PATH with script path
+# Expand PATH with VCPKG_OVERLAY script path
 $env:PATH += ";$path_ext";
 
 # Remove local pkg
