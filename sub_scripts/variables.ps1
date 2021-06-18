@@ -1,5 +1,5 @@
 # Local existing directories
-$main_dir   = Resolve-Path "$PSScriptRoot\..";
+$main_dir   = Resolve-Path "$PSScriptRoot\..\..";
 $inc_dir    = "$main_dir\inc";
 
 # Repo name taken from the git http
