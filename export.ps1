@@ -1,14 +1,14 @@
 $ErrorActionPreference = "Stop";
 
 # Source pkg parameters
-. .\variables.ps1;
+. $PSScriptRoot\variables.ps1;
 
 # Build all binaries
-.\build.ps1
+. $PSScriptRoot\build.ps1
 
 # Create (or recreate) export dir
-if (Test-Path $pkg_dir) {
-    Remove-Item -Recurse -Force $pkg_dir
+if (Test-Path $export_dir) {
+    Remove-Item -Recurse -Force $export_dir
 }
 New-Item -ItemType directory $pkg_dir | Out-Null;
 
