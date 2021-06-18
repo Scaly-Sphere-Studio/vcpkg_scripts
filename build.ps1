@@ -34,7 +34,7 @@ $jobs | %{
 Write-Host "";
 
 # Wait end of all threads
-Wait-Job $jobs;
+Wait-Job $jobs | Out-Null;
 
 # Format and display outputs
 $success = 1;
