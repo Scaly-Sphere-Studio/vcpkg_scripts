@@ -1,7 +1,11 @@
 $ErrorActionPreference = "Stop";
 
 # Source variables
-. .\variables.ps1;
+. $PSScriptRoot\variables.ps1;
+
+# Export project
+. $PSScriptRoot\export.ps1;
+Write-Host "";
 
 # Expand PATH with script path
 $env:PATH += ";$path_ext";

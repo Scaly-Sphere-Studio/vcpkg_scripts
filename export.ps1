@@ -7,22 +7,22 @@ $ErrorActionPreference = "Stop";
 .\build.ps1
 
 # Create (or recreate) export dir
-if (Test-Path $export_dir) {
-    Remove-Item -Recurse -Force $export_dir
+if (Test-Path $pkg_dir) {
+    Remove-Item -Recurse -Force $pkg_dir
 }
-New-Item -ItemType directory $export_pkg | Out-Null;
+New-Item -ItemType directory $pkg_dir | Out-Null;
 
 # Copy binaries and headers, along with vcpkg files
-Copy-Item -Recurse -Path "$pkg_dir\Debug"       -Destination "$export_pkg\Debug";
-Copy-Item -Recurse -Path "$pkg_dir\Release"     -Destination "$export_pkg\Release";
-Copy-Item -Recurse -Path "$pkg_dir\x64\Debug"   -Destination "$export_pkg\x64\Debug";
-Copy-Item -Recurse -Path "$pkg_dir\x64\Release" -Destination "$export_pkg\x64\Release";
-Copy-Item -Recurse -Path "$inc_dir"             -Destination "$export_pkg\include";
-Copy-Item -Recurse -Path "export_files\*"       -Destination "$export_pkg";
-Copy-Item -Recurse -Path "$pkg_dir\CONTROL"     -Destination "$export_pkg";
+Copy-Item -Recurse -Path "$main_dir\Debug"       -Destination "$pkg_dir\Debug";
+Copy-Item -Recurse -Path "$main_dir\Release"     -Destination "$pkg_dir\Release";
+Copy-Item -Recurse -Path "$main_dir\x64\Debug"   -Destination "$pkg_dir\x64\Debug";
+Copy-Item -Recurse -Path "$main_dir\x64\Release" -Destination "$pkg_dir\x64\Release";
+Copy-Item -Recurse -Path "$inc_dir"              -Destination "$pkg_dir\include";
+Copy-Item -Recurse -Path "export_files\*"        -Destination "$pkg_dir";
+Copy-Item -Recurse -Path "$main_dir\CONTROL"     -Destination "$pkg_dir";
 
 # Create export archive
-Compress-Archive -Path "$export_pkg" -DestinationPath "$export_zip"
+Compress-Archive -Path "$pkg_dir" -DestinationPath "$export_zip"
 
 # Output success
-"`nvcpkg export archive ready at: '$export_zip'";
+Write-Host "vcpkg export archive ready at: '$export_zip'";
