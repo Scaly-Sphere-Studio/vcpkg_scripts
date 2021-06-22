@@ -33,6 +33,7 @@ if (NOT VCPKG_BUILD_TYPE OR VCPKG_BUILD_TYPE STREQUAL "release")
     # Copy binaries
     set(build_dir "${base_dir}/${arch_dir}/Release")
     CopyBinary(${build_dir} "${pkg_name}.lib" "lib")
+    CopyBinary(${build_dir} "${pkg_name}.pdb" "lib")
 endif()
 
 # Debug
@@ -41,6 +42,7 @@ if (NOT VCPKG_BUILD_TYPE OR VCPKG_BUILD_TYPE STREQUAL "debug")
     # Copy binaries
     set(build_dir "${base_dir}/${arch_dir}/Debug")
     CopyBinary(${build_dir} "${pkg_name}.lib" "debug/lib")
+    CopyBinary(${build_dir} "${pkg_name}.pdb" "debug/lib")
 endif()
 
 # --- HEADERS ---
