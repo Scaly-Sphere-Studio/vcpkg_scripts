@@ -18,7 +18,7 @@ Copy-Item -Recurse -Path "$main_dir\Release"     -Destination "$pkg_dir\Release"
 Copy-Item -Recurse -Path "$main_dir\x64\Debug"   -Destination "$pkg_dir\x64\Debug";
 Copy-Item -Recurse -Path "$main_dir\x64\Release" -Destination "$pkg_dir\x64\Release";
 Copy-Item -Recurse -Path "$inc_dir"              -Destination "$pkg_dir\include";
-Copy-Item -Recurse -Path "$export_files"         -Destination "$pkg_dir";
+Copy-Item -Recurse -Path "$export_files\*"       -Destination "$pkg_dir";
 Copy-Item -Recurse -Path "$main_dir\CONTROL"     -Destination "$pkg_dir";
 
 # Create export archive
