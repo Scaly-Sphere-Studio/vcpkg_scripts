@@ -3,5 +3,9 @@ $ErrorActionPreference = "Stop";
 # Source variables
 . $PSScriptRoot\variables.ps1;
 
-# Install local pkg
-InstallLocal.ps1 $pkg_name $main_dir;
+# Export sources
+$date = $(Get-Date -UFormat %s).Split(",")[0];
+Create-Port $vcpkg_name local_$date $pkg_path;
+
+# Install pkg
+Pkg-Install $vcpkg_name;
